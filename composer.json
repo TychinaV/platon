@@ -1,0 +1,20 @@
+{
+  "name": "tychinav/platon",
+  "description": "Intagration for Platon",
+  "type": "library",
+  "license": "MIT",
+  "require":{
+    "php":">=5.6.0"
+  },
+  "authors": [
+    {
+      "name": "Tychyna Volodymyr",
+      "email": "tychinavova@gmail.com"
+    }
+  ],
+  "autoload": {
+    "psr-4": {
+      "Platon\\": "src/"
+    }
+  }
+}
