@@ -5,11 +5,21 @@ namespace Platon\Method;
 use InvalidArgumentException;
 
 
+/**
+ * Class Ordinary
+ * @package Platon\Method
+ */
 class Ordinary extends Method
 {
 
+    /**
+     * @var string
+     */
     protected $data;
 
+    /**
+     * @return array
+     */
     public function getInputParams()
     {
         $result = [];
@@ -29,6 +39,9 @@ class Ordinary extends Method
         return $result;
     }
 
+    /**
+     * @throws \InvalidArgumentException
+     */
     protected function verify()
     {
         foreach (['payment', 'amount', 'currency', 'description', 'url'] as $k) {
@@ -50,6 +63,9 @@ class Ordinary extends Method
         }
     }
 
+    /**
+     *
+     */
     protected function setEncData()
     {
         $arr = [
@@ -65,6 +81,11 @@ class Ordinary extends Method
         $this->data = base64_encode(json_encode($arr));
     }
 
+    /**
+     * @param $key
+     * @param $password
+     * @return string
+     */
     public function getSign($key, $password)
     {
         $sign = md5(strtoupper(
