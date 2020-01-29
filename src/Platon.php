@@ -5,23 +5,73 @@ namespace Platon;
 use InvalidArgumentException;
 use Platon\Method;
 
+/**
+ * Class Platon
+ * @package Platon
+ */
 class Platon
 {
-
+    /**
+     * @var string
+     */
     private $actionUrl = 'https://secure.platononline.com/payment/auth';
 
+    /**
+     * @var string
+     */
     private $key;
 
+    /**
+     * @var string
+     */
     private $password;
 
+    /**
+     * @var Method\Method
+     */
     private $method;
 
+    /**
+     * Platon constructor.
+     * @param string $key Key of merchant
+     * @param string $password Password of merchant
+     */
     public function __construct($key, $password)
     {
         $this->key = $key;
         $this->password = $password;
     }
 
+    /**
+     * @param array $params
+     * @param array $extend Possible keys: form_id, submit_id, submit_text
+     * @param bool $showSubmitBtn
+     * @return string
+     *
+     * Example: [
+     * 'payment'     => 'CC',
+     * 'order'       => 'ORDER-123',                    // optional
+     * 'amount'      => 1.05,
+     * 'currency'    => 'UAH',
+     * 'description' => 'Describe of purchase',
+     * 'url'         => 'http://merchant.site/success',
+     * 'error_url'   => 'http://merchant.site/error',    // optional
+     * 'recurring'   => true,                           // optional
+     * 'ext1'        => 'something',                    // optional
+     * ....
+     * 'ext10'       => 'something',                    // optional
+     * 'lang'        => 'en',                           // optional
+     * 'formid'      => 'UIYY2H2',                      // optional
+     * 'first_name'  => 'John',                         // optional
+     * 'last_name'   => 'Doe',                          // optional
+     * 'address'     => 'Some location',                // optional
+     * 'zip'         => '132456',                       // optional
+     * 'city'        => 'Big city',                     // optional
+     * 'country'     => 'UA',                           // optional
+     * 'phone'       => '0669998877',                   // optional
+     * 'email'       => 'example@mail.com',             // optional
+     * ]
+     */
     public function getHtmlForm($params, $extend = [], $showSubmitBtn = true)
     {
         $this->setMethod($params);
@@ -55,6 +105,10 @@ class Platon
         );
     }
 
+    /**
+     * @param array $params
+     * @throws InvalidArgumentException
+     */
     protected function setMethod($params)
     {
         if (empty($params['payment'])) {
@@ -64,8 +118,13 @@ class Platon
         $this->method = new Method\Ordinary($params);
     }
 
+    /**
+     * @param string $url
+     */
     public function setActionUrl($url)
     {
         $this->actionUrl = $url;
     }
+
+
 }
