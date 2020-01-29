@@ -4,14 +4,12 @@ namespace Platon\Method;
 
 use InvalidArgumentException;
 
-
 /**
  * Class Ordinary
  * @package Platon\Method
  */
 class Ordinary extends Method
 {
-
     /**
      * @var string
      */
