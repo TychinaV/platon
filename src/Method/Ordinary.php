@@ -58,9 +58,6 @@ class Ordinary extends Method
             throw new InvalidArgumentException("Invalid currency");
         }
 
-        if (!preg_match('https?://.+', $this->params['url'])) {
-            throw new InvalidArgumentException("Invalid url");
-        }
     }
 
     /**
