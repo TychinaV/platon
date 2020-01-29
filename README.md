@@ -1,10 +1,10 @@
-#Installation
-###Using composer:
+<h1>Installation</h1>
+<h4>Using composer:</h4>
 
-`composer require wearesho-team/platon`
+`...`
 
-#Usage
-####List of possible parameters:<br>
+<h1>Usage</h1>
+<h4>List of possible parameters:</h4>
 [<br>
      'payment'     => 'CC',<br>
      'order'       => 'ORDER-123',                    // optional<br>
@@ -29,7 +29,7 @@
      'email'       => 'example@mail.com',             // optional<br>
 ]
 
-####You can add own parameters in html form.
+<h4>You can add own parameters in html form.</h4>
 
 Example:
 ```
