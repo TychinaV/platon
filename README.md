@@ -1,7 +1,7 @@
 <h1>Installation</h1>
 <h4>Using composer:</h4>
 
-`...`
+`composer require tychinav/platon`
 
 <h1>Usage</h1>
 <h4>List of possible parameters:</h4>
